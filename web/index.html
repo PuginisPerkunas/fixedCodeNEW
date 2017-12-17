@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>Jeep Control</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="jquery.ajax-cross-origin.min.js"></script>
+    <script type="text/javascript">
+             $(document).ready(function(){
+                $("#btn_full").click(function(e){
+                    e.preventDefault();
+                    var request = $.ajax({
+                        type: "GET",
+                        url: "webresources/jeep/engine/chosenspeed"
+                    });
+                    request.done(function(data){
+                        $('#responseDiv').html(data.speed);
+                        console.log(data);
+                    });
+                    request.fail(function(data, textStatus){
+                        console.log(data);
+                        console.log(textStatus);
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#btn_stop").click(function(e){
+                    e.preventDefault();
+                    var request = $.ajax({
+                        crossOrigin: true,
+                        type: "GET",
+                        url: "webresources/jeep/engine/stop"
+                    });
+                    request.done(function(data){
+                        $('#responseDiv').html(data.speed);
+                        console.log(data);
+                    });
+                    request.fail(function(data, textStatus){
+                        console.log(data);
+                        console.log(textStatus);
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#btn_up").click(function(e){
+                    e.preventDefault();
+                    var request = $.ajax({
+                        crossOrigin: true,
+                        type: "GET",
+                        url: "webresources/jeep/engine/speedup"
+                    });
+                    request.done(function(data){
+                        $('#responseDiv').html(data.speed);
+                        console.log(data);
+                    });
+                    request.fail(function(data, textStatus){
+                        console.log(data);
+                        console.log(textStatus);
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#btn_down").click(function(e){
+                    e.preventDefault();
+                    var request = $.ajax({
+                        crossOrigin: true,
+                        type: "GET",
+                        url: "webresources/jeep/engine/speeddown"
+                    });
+                    request.done(function(data){
+                        $('#responseDiv').html(data.speed);
+                        console.log(data);
+                    });
+                    request.fail(function(data, textStatus){
+                        console.log(data);
+                        console.log(textStatus);
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#btn_backward").click(function(e){
+                    e.preventDefault();
+                    var request = $.ajax({
+                        crossOrigin: true,
+                        type: "GET",
+                        url: "webresources/jeep/engine/backward"
+                    });
+                    request.done(function(data){
+                        $('#responseDiv').html(data.speed);
+                        console.log(data);
+                    });
+                    request.fail(function(data, textStatus){
+                        console.log(data);
+                        console.log(textStatus);
+                    });
+                });
+            });
+             $(document).ready(function(){
+                $("#btn_forward").click(function(e){
+                    e.preventDefault();
+                    var request = $.ajax({
+                        crossOrigin: true,
+                        type: "GET",
+                        url: "webresources/jeep/engine/forward"
+                    });
+                    request.done(function(data){
+                        $('#responseDiv').html(data.speed);
+                        console.log(data);
+                    });
+                    request.fail(function(data, textStatus){
+                        console.log(data);
+                        console.log(textStatus);
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#btn_left").click(function(e){
+                    e.preventDefault();
+                    var request = $.ajax({
+                        crossOrigin: true,
+                        type: "GET",
+                        url: "webresources/jeep/engine/left"
+                    });
+                    request.done(function(data){
+                        $('#responseDiv').html(data.speed);
+                        console.log(data);
+                    });
+                    request.fail(function(data, textStatus){
+                        console.log(data);
+                        console.log(textStatus);
+                    });
+                });
+            });
+            $(document).ready(function(){
+                $("#btn_right").click(function(e){
+                    e.preventDefault();
+                    var request = $.ajax({
+                        crossOrigin: true,
+                        type: "GET",
+                        url: "webresources/jeep/engine/right"
+                    });
+                    request.done(function(data){
+                        $('#responseDiv').html(data.speed);
+                        console.log(data);
+                    });
+                    request.fail(function(data, textStatus){
+                        console.log(data);
+                        console.log(textStatus);
+                    });
+                });
+            });
+        </script>
+</head>
+<body>
+<div class="container">
+    <div class="centered text-center"><h4>JEEP Controls</h4></div>
+</div>
+<div class="container">
+    <button class="btn btn-full-speed btn-block" type="button" id="btn_full">Dabartinis greitis</button>
+    <button class="btn btn-full-speed btn-block" type="button" id="btn_up">Greitis +</button>
+    <button class="btn btn-full-speed btn-block" type="button" id="btn_down">Greitis -</button>
+</div>
+<div class="container panel">
+    <button class="btn btn-danger btn-block" type="button" id="btn_stop">STOP</button>
+</div>
+<div class="container panel">
+    <button class="btn btn-forward btn-block" type="button" id="btn_forward">UP</button>
+</div>
+<div class="container">
+    <div class="row panel">
+        <div class="col-lg-6 col-sm-6 col-xs-6">
+            <button class="btn btn-left btn-block" type="button" id="btn_left">LEFT</button>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-6">
+            <button class="btn btn-left btn-block" type="button" id="btn_right">RIGHT</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <button class="btn btn-forward btn-block" type="button" id="btn_backward">BACK</button>
+</div>
+<div class="container" id="responseDiv">
+
+</div>
+</body>
+</html>
